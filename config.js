@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
 const path = require('path');
 
-const envPath = path.join(__dirname, '../.env');
+const envPath = path.join(__dirname, './.env');
 
 dotenv.config({
     path: envPath,
@@ -14,6 +14,6 @@ module.exports = {
         PASSWORD: process.env.MONGO_PASSWORD || null,
         HOSTNAME: process.env.MONGO_HOSTNAME || 'localhost',
         PORT: process.env.MONGO_PORT || 27017,
-        DB: process.env.MONGO_DB || 'receiver',
+        DB: process.env.MONGO_DB || 'transfeera',
     }
 }

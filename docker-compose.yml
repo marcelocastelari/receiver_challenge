@@ -9,7 +9,7 @@ services:
     volumes:
       - ./mongo:/data/db
     environment:
-      - MONGO_INITDB_DATABASE=receivers
+      - MONGO_INITDB_DATABASE=transfeera
 
 
 
