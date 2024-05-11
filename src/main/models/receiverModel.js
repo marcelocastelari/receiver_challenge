@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const receiverSchema = new mongoose.Schema({
+    uuid: {
+        type: String,
+        unique: true
+    },
     cpf_cnpj : {
         type: String,
         required: true
