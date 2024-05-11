@@ -6,23 +6,18 @@ const getReceivers = async () => {
 
 const saveReceiver = async (receiverData) => {
     return Receiver.updateOne(
-        { pix_key: receiverData.pix_key },
+        { uuid: receiverData.uuid },
         { $set: receiverData },
         { upsert: true } 
     );
 }
 
 const updateReceiver = async (receiverData) => {
-    console.log('chegou aqui')
-    try {
-        return Receiver.updateOne(
-            { pix_key: receiverData.pix_key },
-            { $set: receiverData },
-        );
-    } catch (error) {
-        console.log('error');
-        console.log(error);
-    }
+    return Receiver.updateOne(
+        { uuid: receiverData.uuid },
+        { $set: receiverData },
+    );
 }
+    
 
 module.exports = { saveReceiver, getReceivers, updateReceiver };
