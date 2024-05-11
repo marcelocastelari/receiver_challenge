@@ -1,7 +1,9 @@
+const receiverService = require('../services/receiverService')
+
 module.exports = {
     async list(req, res) {
         try {
-            const response = await listReceivers()
+            const response = await receiverService.listReceivers()
             res.status(200).send(response)
         } catch (error) {
             res.status(400).send(error.message)
@@ -10,7 +12,7 @@ module.exports = {
 
     async create(req, res) {
         try {
-            const response = await createReceiver(req.body)
+            const response = await receiverService.createReceiver(req.body)
             res.status(201).send(response)
         } catch (error) {
             res.status(400).send(error.message)
@@ -19,7 +21,7 @@ module.exports = {
 
     async edit(req, res) {
         try {
-            const response = await editReceiver(req.body)
+            const response = await receiverService.editReceiver(req.body)
             res.status(200).send(response)
         } catch (error) {
             res.status(400).send(error.message)
