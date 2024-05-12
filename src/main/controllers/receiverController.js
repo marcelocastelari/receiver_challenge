@@ -3,16 +3,7 @@ const receiverService = require('../services/receiverService')
 module.exports = {
     async list(req, res) {
         try {
-            const response = await receiverService.listReceivers()
-            res.status(200).send(response)
-        } catch (error) {
-            res.status(400).send({ message: error.message })
-        }
-    },
-
-    async get(req, res) {
-        try {
-            const response = await receiverService.getReceiversByField(req.params)
+            const response = await receiverService.listReceivers(req);
             res.status(200).send(response)
         } catch (error) {
             res.status(400).send({ message: error.message })
