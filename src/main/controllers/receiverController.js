@@ -6,7 +6,16 @@ module.exports = {
             const response = await receiverService.listReceivers()
             res.status(200).send(response)
         } catch (error) {
-            res.status(400).send(error.message)
+            res.status(400).send({ message: error.message })
+        }
+    },
+
+    async get(req, res) {
+        try {
+            const response = await receiverService.getReceiversByField(req.params)
+            res.status(200).send(response)
+        } catch (error) {
+            res.status(400).send({ message: error.message })
         }
     },
 
@@ -15,34 +24,34 @@ module.exports = {
             const response = await receiverService.createReceiver(req.body)
             res.status(201).send(response)
         } catch (error) {
-            res.status(400).send(error.message)
+            res.status(400).send({ message: error.message })
         }
     },
 
     async edit(req, res) {
         try {
-            const response = await receiverService.editReceiver(req.body)
-            res.status(200).send(response)
+            await receiverService.editReceiver(req)
+            res.status(200).send({ message: 'Receiver updated successfully' })
         } catch (error) {
-            res.status(400).send(error.message)
+            res.status(400).send({ message: error.message })
         }
     },
 
     async delete(req, res) {
         try {
-            const response = await deleteReceiver(req.body)
-            res.status(200).send(response)
+            await receiverService.deleteReceiver(req.params.id)
+            res.status(200).send({ message: 'Receiver deleted successfully'})
         } catch (error) {
-            res.status(400).send(error.message)
+            res.status(400).send({ message: error.message })
         }
     },
 
     async bulkDelete(req, res) {
         try {
-            const response = await bulkDeleteReceivers(req.body)
-            res.status(200).send(response)
-        } catch (error) {
-            res.status(400).send(error.message)
+            await receiverService.bulkDeleteReceivers(req.body)
+            res.status(200).send({ message: 'Bulk delete completed successfully' })
+        } catch ({ message }) {
+            res.status(400).send({ message: error.message })
         }
     }
 }

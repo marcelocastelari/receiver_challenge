@@ -5,6 +5,7 @@ const getReceivers = async () => {
 };
 
 const saveReceiver = async (receiverData) => {
+
     return Receiver.updateOne(
         { uuid: receiverData.uuid },
         { $set: receiverData },
@@ -12,12 +13,34 @@ const saveReceiver = async (receiverData) => {
     );
 }
 
-const updateReceiver = async (receiverData) => {
+const getReceiverById = async (uuid) => {
+    return Receiver.findOne({
+        uuid: uuid
+    });
+}
+
+const getReceiversByParam = async(param) => {
+    const parameter = param.field
+    console.log(parameter);
+    return Receiver.find({ parameter });
+}
+
+const updateReceiver = async (uuid, receiverData) => {
     return Receiver.updateOne(
-        { uuid: receiverData.uuid },
+        { uuid: uuid },
         { $set: receiverData },
     );
 }
+
+const deleteReceiver = async (receiverId) => {
+    return Receiver.deleteOne(
+        { uuid: receiverId }
+    );
+}
+
+const bulkDeleteReceivers = async (receiversId) => {
+    return Receiver.deleteMany({ uuid: { $in: receiversId } });
+}
     
 
-module.exports = { saveReceiver, getReceivers, updateReceiver };
+module.exports = { saveReceiver, getReceivers, getReceiversByParam, getReceiverById, updateReceiver, deleteReceiver, bulkDeleteReceivers };

@@ -1,7 +1,8 @@
 const pino = require('pino');
-const { getReceivers, saveReceiver, updateReceiver } = require('../repositories/receiverRepository')
+const { getReceivers, getReceiverById, saveReceiver, updateReceiver, deleteReceiver, getReceiversByParam } = require('../repositories/receiverRepository')
 const { isDataValid } = require('../utils/validatorUtil.js');
-const { addUuid } = require('../utils/uuidUtils.js');
+const { addUuid, validateUuid } = require('../utils/uuidUtil.js');
+const { validateUpdate } = require('../utils/updateUtil.js');
 
 const logger = pino();
 
@@ -11,25 +12,64 @@ module.exports = {
         return getReceivers();
     },
 
+    async getReceiversByField(field) {
+        return getReceiversByParam(field)
+    },
+
     async createReceiver(receiverData) {
         if(!isDataValid(receiverData)) {
             logger.error(`[receiverService][createReceiver] Receiver data is not valid`);
             return;
         }
+
+        const userExists = await getReceiverById(receiverData);
+        if(userExists) {
+            logger.error(`[receiverService][createReceiver] Receiver already exists`);
+            throw new Error(`Receiver with this key already exists`);
+        }
         const dataWithUuid = addUuid(receiverData);
         await saveReceiver(dataWithUuid);
     },
 
-    async editReceiver(receiverData) {
-        if(!isDataValid(receiverData)) {
+    async editReceiver(req) {
+        const receiverData = req.body;
+        const uuid = req.params.id;
+        if(!isDataValid(receiverData) || !validateUuid(uuid)) {
             logger.error(`[receiverService][editReceiver] Receiver data is not valid`);
-            return;
+            throw new Error(`Invalid request params`);
         }
-        await updateReceiver(receiverData);
+
+        const existingReceiver = await getReceiverById(uuid);
+        if(!existingReceiver) {
+            logger.error(`[receiverService][editReceiver] Receiver not found`);
+            throw new Error(`Receiver not found`);
+        }
+
+        const isUpdateValid = await validateUpdate(uuid, receiverData);
+        if (!isUpdateValid) {
+            logger.error(`[receiverService][editReceiver] Update not allowed based on status`);
+            throw new Error(`Only email field can be updated based on status`);
+        }
+
+        await updateReceiver(uuid, receiverData)
     },
 
-    async deleteReceiver(receiverId) {},
+    async deleteReceiver(receiverId) {
+        if(!validateUuid(receiverId)){
+            logger.error(`[receiverService][deleteReceiver] Receiver data is not valid`);
+            throw new Error(`Invalid request params`);
+        }
+        await deleteReceiver(receiverId);
+    },
 
-    async bulkDeleteReceivers(receiverIds) {},
+    async bulkDeleteReceivers(receiversId) {
+        for(let receiverId of receiversId) {
+            if(!validateUuid(receiverId)) {
+                logger.error(`[receiverService][bulkDeleteReceivers] Receiver data is not valid`);
+                throw new Error(`Invalid request params`);
+            }
+            await deleteReceiver(receiverId);
+        }
+    },
 
 }
