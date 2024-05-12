@@ -83,17 +83,15 @@ const validateSchema = (data) => {
 }
 
 const isDataValid = (data) => {
-        const filteredData = {
-            email: data.email,
-            pix_key_type: data.pix_key_type,
-            pix_key: data.pix_key,
-        }
-    
-        if(validateFields(data)) {
-            return validateSchema(filteredData)  
-        }
-    
-        return;
+    const filteredData = {
+        email: data.email,
+        pix_key_type: data.pix_key_type,
+        pix_key: data.pix_key,
+    }
+
+    if(validateFields(data)) {
+        return validateSchema(filteredData)  
+    }
 }
 
-module.exports = { isDataValid };
+module.exports = { isDataValid, validateSchema };
