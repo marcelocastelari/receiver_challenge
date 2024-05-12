@@ -13,7 +13,7 @@ module.exports = {
     async create(req, res) {
         try {
             const response = await receiverService.createReceiver(req.body)
-            res.status(201).send(response)
+            res.status(201).send({ message: 'Receiver created successfully' })
         } catch (error) {
             res.status(400).send({ message: error.message })
         }
@@ -41,7 +41,7 @@ module.exports = {
         try {
             await receiverService.bulkDeleteReceivers(req.body)
             res.status(200).send({ message: 'Bulk delete completed successfully' })
-        } catch ({ message }) {
+        } catch (error) {
             res.status(400).send({ message: error.message })
         }
     }

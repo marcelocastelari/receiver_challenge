@@ -1,5 +1,5 @@
 const pino = require('pino');
-const { getReceivers, getReceiverById, saveReceiver, updateReceiver, deleteReceiver } = require('../repositories/receiverRepository')
+const { getReceivers, getReceiverById, saveReceiver, updateReceiver, deleteReceiver, bulkDeleteReceivers } = require('../repositories/receiverRepository')
 const { isDataValid } = require('../utils/validatorUtil.js');
 const { addUuid, validateUuid } = require('../utils/uuidUtil.js');
 const { validateUpdate } = require('../utils/updateUtil.js');
@@ -23,7 +23,7 @@ module.exports = {
     async createReceiver(receiverData) {
         if(!isDataValid(receiverData)) {
             logger.error(`[receiverService][createReceiver] Receiver data is not valid`);
-            return;
+            throw new Error(`Invalid request params`);
         }
         const dataWithUuid = addUuid(receiverData);
         await saveReceiver(dataWithUuid);
@@ -55,19 +55,19 @@ module.exports = {
     async deleteReceiver(receiverId) {
         if(!validateUuid(receiverId)){
             logger.error(`[receiverService][deleteReceiver] Receiver data is not valid`);
-            throw new Error(`Invalid request params`);
+            throw new Error(`Error on delete receiver`);
         }
         await deleteReceiver(receiverId);
     },
 
     async bulkDeleteReceivers(receiversId) {
         for(let receiverId of receiversId) {
-            if(!validateUuid(receiverId)) {
-                logger.error(`[receiverService][bulkDeleteReceivers] Receiver data is not valid`);
-                throw new Error(`Invalid request params`);
+            if(!validateUuid(receiverId)){
+                logger.error(`[receiverService][bulkDeleteReceiver] Receiver data is not valid`);
+                throw new Error(`Error on bulk delete receiver`);
             }
-            await deleteReceiver(receiverId);
         }
+        await bulkDeleteReceivers(receiversId);
     },
 
 }

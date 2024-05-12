@@ -14,7 +14,7 @@ const getReceivers = async (query, skip, limit) => {
         .limit(limit);
     } catch (error) {
         logger.info(`[receiverRepository][getReceivers] ${error.message}`);
-        throw new Error(`${error.codeName} - ${error.keyValue}`);
+        throw new Error(`Error on get receivers`);
     }
 };
 
@@ -27,7 +27,7 @@ const saveReceiver = async (receiverData) => {
         );
     } catch (error) {
         logger.info(`[receiverRepository][saveReceiver] ${error.message}`);
-        throw new Error(`${error.codeName} - ${error.keyValue}`);
+        throw new Error(`Error on save receiver`);
     }
 };
 
@@ -38,7 +38,7 @@ const getReceiverById = async (uuid) => {
         });
     } catch (error) {
         logger.info(`[receiverRepository][getReceiverById] ${error.message}`);
-        throw new Error(`${error.codeName} - ${error.keyValue}`);
+        throw new Error(`Error on get receiver by id`);
     }
 };
 
@@ -50,7 +50,7 @@ const updateReceiver = async (uuid, receiverData) => {
         );
     } catch (error) {
         logger.info(`[receiverRepository][updateReceiver] ${error.message}`);
-        throw new Error(`${error.codeName} - ${error.keyValue}`);
+        throw new Error(`Error on update receiver`);
     }
 };
 
@@ -61,7 +61,7 @@ const deleteReceiver = async (receiverId) => {
         );
     } catch (error) {
         logger.info(`[receiverRepository][deleteReceiver] ${error.message}`);
-        throw new Error(`${error.codeName} - ${error.keyValue}`);
+        throw new Error(`error on delete receiver`);
     }
 };
 
@@ -71,7 +71,8 @@ const bulkDeleteReceivers = async (receiversId) => {
             { uuid: { $in: receiversId } 
         });
     } catch (error) {
-        throw new Error(`${error.codeName} - ${error.keyValue}`);
+        logger.info(`[receiverRepository][bulkDeleteReceivers] ${error.message}`);
+        throw new Error('error on bulk delete receivers');
     }
 };
     
