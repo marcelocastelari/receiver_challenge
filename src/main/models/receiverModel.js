@@ -18,7 +18,7 @@ const receiverSchema = new mongoose.Schema({
     },
     pix_key : {
         type: String,
-        required: true
+        required: true,
     },
     pix_key_type : {
         type: String,
@@ -26,7 +26,7 @@ const receiverSchema = new mongoose.Schema({
     },
     status : {
         type: String,
-        default: 'Draft'
+        default: 'draft'
     }
 });
 
