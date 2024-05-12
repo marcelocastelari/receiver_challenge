@@ -3,11 +3,11 @@ const pino = require('pino');
 const logger = pino();
 
 const ERROR_MESSAGES = {
-    'CPF': 'O CPF deve seguir o formato XXX.XXX.XXX-XX ou XXXXXXXXXXX',
-    'CNPJ': 'O CNPJ deve ter todos os 14 caracteres e seguir o formato XX.XXX.XXX/XXXX-XX ou XXXXXXXXXXXXXX',
-    'EMAIL': 'O email deve ser um endereço válido.',
-    'TELEFONE': 'O telefone deve seguir o formato XXXXXXXXXXX.',
-    'CHAVE_ALEATORIA': 'A chave aleatória deve seguir o formato XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX.',
+    'CPF': 'The CPF must follow the format XXX.XXX.XXX-XX or XXXXXXXXXXX',
+    'CNPJ': 'The CNPJ must have all 14 characters and follow the format XX.XXX.XXX/XXXX-XX or XXXXXXXXXXXXXX',
+    'EMAIL': 'The email must be a valid address.',
+    'TELEFONE': 'The phone number must follow the format XXXXXXXXXXX.',
+    'CHAVE_ALEATORIA': 'The random key must follow the format XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX.',
 }
 
 const REGEX = {
@@ -21,19 +21,19 @@ const REGEX = {
 const validateFields = (data) => {
     const {  cpf_cnpj, name, pix_key_type, pix_key, email } = data;
     if(!cpf_cnpj) {
-        throw new Error('CPF ou CNPJ não informado');
+        throw new Error('CPF or CNPJ not informed');
     }
     if(!name) {
-        throw new Error('Nome não informado');
+        throw new Error('Name not given');
     }
     if(!email) {
-        throw new Error('Email não informado');
+        throw new Error('Email not provided');
     }
     if(!pix_key_type) {
-        throw new Error('Tipo de chave não informado');
+        throw new Error('Key type not specified');
     }
     if(!pix_key) {
-        throw new Error('Chave não informada');
+        throw new Error('Key not provided');
     }
     
     return true;

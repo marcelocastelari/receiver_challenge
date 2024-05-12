@@ -1,4 +1,4 @@
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4, validate: uuidValidate } = require('uuid');
 
 const getUuid = () => {
     return uuidv4();
@@ -10,7 +10,13 @@ const addUuid = (data) => {
     return data;
 }
 
+const validateUuid = (uuid) => {
+    return uuidValidate(uuid);
+}
+
+
 module.exports = {
     getUuid,
-    addUuid
+    addUuid,
+    validateUuid
 }
