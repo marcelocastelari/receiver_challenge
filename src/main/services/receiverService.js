@@ -1,31 +1,29 @@
 const pino = require('pino');
-const { getReceivers, getReceiverById, saveReceiver, updateReceiver, deleteReceiver, getReceiversByParam } = require('../repositories/receiverRepository')
+const { getReceivers, getReceiverById, saveReceiver, updateReceiver, deleteReceiver } = require('../repositories/receiverRepository')
 const { isDataValid } = require('../utils/validatorUtil.js');
 const { addUuid, validateUuid } = require('../utils/uuidUtil.js');
 const { validateUpdate } = require('../utils/updateUtil.js');
+const { queryByField } = require('../utils/queryUtil.js');
+const { paginate } = require('../utils/paginationUtil.js');
 
 const logger = pino();
 
 module.exports = {
 
-    async listReceivers() {
-        return getReceivers();
-    },
+    async listReceivers(req) {
+        const { page, pageSize } = req.query;
+        const { skip, size } = paginate(page, pageSize);
 
-    async getReceiversByField(field) {
-        return getReceiversByParam(field)
+        const field = req.query;
+        const query = queryByField(field);
+
+        return getReceivers(query, skip, size);
     },
 
     async createReceiver(receiverData) {
         if(!isDataValid(receiverData)) {
             logger.error(`[receiverService][createReceiver] Receiver data is not valid`);
             return;
-        }
-
-        const userExists = await getReceiverById(receiverData);
-        if(userExists) {
-            logger.error(`[receiverService][createReceiver] Receiver already exists`);
-            throw new Error(`Receiver with this key already exists`);
         }
         const dataWithUuid = addUuid(receiverData);
         await saveReceiver(dataWithUuid);
