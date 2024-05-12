@@ -2,9 +2,11 @@ const { getReceiverById } = require('../repositories/receiverRepository')
 
 const validateUpdate = async (uuid, data) => {
     const oldData = await getReceiverById(uuid);
+    if (!oldData) {
+        return true;
+    }
     if (oldData.status === 'valid') {
         for (let key in data) {
-            console.log(key);
             if (key !== 'email' && oldData[key] !== data[key]) {
                 return false;
             } 
@@ -12,7 +14,6 @@ const validateUpdate = async (uuid, data) => {
     } else {
         return true;
     }
-
     return true;
 }
 
