@@ -1,0 +1,281 @@
+[{
+
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User",
+  "pix_key": "12345678901",
+  "pix_key_type": "CPF",
+  "status": "valid"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 2",
+  "pix_key": "12345678902",
+  "pix_key_type": "CPF",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 3",
+  "pix_key": "12345678903",
+  "pix_key_type": "CPF",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 4",
+  "pix_key": "12345678904",
+  "pix_key_type": "CPF",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 5",
+  "pix_key": "12345678905",
+  "pix_key_type": "CPF",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 6",
+  "pix_key": "12345678906",
+  "pix_key_type": "CPF",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 7",
+  "pix_key": "12345678907",
+  "pix_key_type": "CPF",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 8",
+  "pix_key": "12345678908",
+  "pix_key_type": "CPF",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 9",
+  "pix_key": "teste@teste.com",
+  "pix_key_type": "EMAIL",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 10",
+  "pix_key": "teste@teste1.com",
+  "pix_key_type": "EMAIL",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 11",
+  "pix_key": "teste@teste123.com",
+  "pix_key_type": "EMAIL",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste571.com",
+  "name": "User 36",
+  "pix_key": "teste@email.com",
+  "pix_key_type": "EMAIL",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 37",
+  "pix_key": "12988838610",
+  "pix_key_type": "TELEFONE",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 12",
+  "pix_key": "12912345611",
+  "pix_key_type": "TELEFONE",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 13",
+  "pix_key": "12912345678",
+  "pix_key_type": "TELEFONE",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 14",
+  "pix_key": "12912345679",
+  "pix_key_type": "TELEFONE",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 15",
+  "pix_key": "12912345610",
+  "pix_key_type": "TELEFONE",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 38",
+  "pix_key": "12345678910",
+  "pix_key_type": "CPF",
+  "status": "valid"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 16",
+  "pix_key": "98765432178",
+  "pix_key_type": "CPF",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 17",
+  "pix_key": "23010452004",
+  "pix_key_type": "CPF",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 39",
+  "pix_key": "366.573.340-52",
+  "pix_key_type": "CPF",
+  "status": "valid"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 19",
+  "pix_key": "658.391.550-20",
+  "pix_key_type": "CPF",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 20",
+  "pix_key": "686.993.580-75",
+  "pix_key_type": "CPF",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 21",
+  "pix_key": "685.967.180-79",
+  "pix_key_type": "CPF",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 22",
+  "pix_key": "78676566003",
+  "pix_key_type": "CPF",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 23",
+  "pix_key": "518.113.090-97",
+  "pix_key_type": "CPF",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 24",
+  "pix_key": "367.082.120-13",
+  "pix_key_type": "CPF",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 25",
+  "pix_key": "ddfbff07-a451-4f19-a5af-1fad4762a27e",
+  "pix_key_type": "CHAVE_ALEATORIA",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 26",
+  "pix_key": "a898f032-7c6b-459b-9a5f-5427a6789560",
+  "pix_key_type": "CHAVE_ALEATORIA",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 28",
+  "pix_key": "5649bdfb-a90b-416c-bf93-d3be093d7da1",
+  "pix_key_type": "CHAVE_ALEATORIA",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 30",
+  "pix_key": "2e787124-6f6e-4e5d-b9d6-088da811f844",
+  "pix_key_type": "CHAVE_ALEATORIA",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 31",
+  "pix_key": "e5eb3346-4190-42bd-8ee0-559f50d5893b",
+  "pix_key_type": "CHAVE_ALEATORIA",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 32",
+  "pix_key": "a37bbcdf-9f57-4a32-97db-7dd682ab8db3",
+  "pix_key_type": "CHAVE_ALEATORIA",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 33",
+  "pix_key": "971e9356-438d-4f34-99b5-aada6792ee32",
+  "pix_key_type": "CHAVE_ALEATORIA",
+  "status": "draft"
+},
+{
+  "cpf_cnpj": "12345678901",
+  "email": "teste@teste.com",
+  "name": "User 35",
+  "pix_key": "0c4c6403-8041-43fe-9230-82661fdce76c",
+  "pix_key_type": "CHAVE_ALEATORIA",
+  "status": "draft"
+}]
