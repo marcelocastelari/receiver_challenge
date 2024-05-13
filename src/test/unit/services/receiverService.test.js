@@ -146,7 +146,7 @@ describe('Receiver Service', () => {
 
     validateUuid.mockReturnValue(false);
 
-    await expect(receiverService.deleteReceiver(mockUuid)).rejects.toThrowError('Invalid request params');
+    await expect(receiverService.deleteReceiver(mockUuid)).rejects.toThrowError('Error on delete receiver');
     expect(deleteReceiver).not.toHaveBeenCalled();
   });
 
@@ -215,7 +215,7 @@ describe('Receiver Service', () => {
 
   it('should throw an error if any receiver is not found', async () => {
     const mockUuids = ['uuid1', 'uuid2', 'uuid3'];
-    const mockError = new Error('Invalid request params');
+    const mockError = new Error('Error on bulk delete receiver');
 
     bulkDeleteReceivers.mockImplementationOnce(() => { throw mockError });
     validateUuid.mockReturnValue(false);
